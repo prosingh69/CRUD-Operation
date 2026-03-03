@@ -1,4 +1,4 @@
-##CRUD OPERATION PRACTICE
+## CRUD OPERATION PRACTICE
 Technical Specification: React, REST API, & Tailwind Architecture
 This repository contains a high-performance, component-driven CRUD (Create, Read, Update, Delete) application. The project is architected to demonstrate seamless data synchronization between a React frontend and a RESTful API, styled with a utility-first Tailwind CSS framework.
 
