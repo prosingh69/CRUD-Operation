@@ -1,16 +1,35 @@
-# React + Vite
+##CRUD OPERATION PRACTICE
+Technical Specification: React, REST API, & Tailwind Architecture
+This repository contains a high-performance, component-driven CRUD (Create, Read, Update, Delete) application. The project is architected to demonstrate seamless data synchronization between a React frontend and a RESTful API, styled with a utility-first Tailwind CSS framework.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🛠 Technical Stack
+Frontend Library: React.js (Functional Components)
 
-Currently, two official plugins are available:
+Styling Engine: Tailwind CSS (JIT Engine for optimized production builds)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+State Management: React Hooks (useState, useEffect) and Context API (if applicable)
 
-## React Compiler
+Data Fetching: Axios / Native Fetch API with Asynchronous async/await patterns
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Routing: React Router DOM v6 for client-side navigation
 
-## Expanding the ESLint configuration
+## 🏗 System Architecture & Logic Flow
+The application follows a modular design pattern to ensure a strict separation of concerns between the UI layer and the data fetching layer.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Data Persistence & API Interaction
+The core logic utilizes a centralized service pattern to handle HTTP requests:
+
+GET (Fetch): Implemented within useEffect to trigger data retrieval on component mount.
+
+POST (Create): Captures state-bound form data, serializes it into JSON, and dispatches it to the server.
+
+PUT/PATCH (Update): Target-based updates using unique resource identifiers (IDs) to modify existing records.
+
+DELETE (Destroy): Executes termination requests followed by "Optimistic UI" updates to remove items from the state without a page reload.
+
+2. Component-Level Implementation
+Controlled Components: All form inputs are synchronized with React state, serving as the "Single Source of Truth."
+
+Conditional Rendering: Implements "Skeleton Loaders" and "Empty State" fragments to improve perceived performance.
+
+Error Boundaries: Comprehensive try-catch blocks are used across all API calls to manage network failures and 404/500 status codes gracefully.
